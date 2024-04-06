@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Information</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+
+    header {
+      
+      background-color: rgba(7, 14, 29, 0.941) ;
+      text-align: center;
+      padding: 10px;
+      font-size: 10px ;
+    }
+
+    body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #15345f;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+
+    #college-image {
+      width: 40%;
+      height: auto;
+      margin-left: auto;
+      margin-right: auto;
+      
+    }
+
+    .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+    section {
+      margin: 20px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .placement-info {
+      display: flex;
+      justify-content: space-around;
+      background-color: #f0f0f0;
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    .other-info {
+      margin-top: 20px;
+    }
+
+    .placement-stats {
+      margin-top: 20px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .placement-stats table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      // Smooth scroll function
+      function scrollToSection(sectionId) {
+          document.getElementById(sectionId).scrollIntoView({
+              behavior: 'smooth'
+          });
+      }
+
+      // Attach click event listeners to navigation links
+      var navLinks = document.querySelectorAll('nav a');
+      navLinks.forEach(function (link) {
+          link.addEventListener('click', function (event) {
+              event.preventDefault();
+              var sectionId = link.getAttribute('href').substring(1);
+              scrollToSection(sectionId);
+          });
+      });
+  });
+</script>
+</head>
+<body>
+
+  <header>
+    <img src="{{url_for('static',filename="images/PICTlogo.png")}}" width="250px" height="300px">
+    <h1 style="color: #e4dfd8;">PUNE INSTITUTE OF COMPUTER TECHNOLOGY</h1>
+   
+    <h2 style="color: #e4dfd8;">Society for Computer Technology and Research's
+        PUNE INSTITUTE OF COMPUTER TECHNOLOGY
+        (An Autonomous Institute affiliated to Savitribai Phule Pune University)
+        AICTE APPROVED | ISO 9001:2015 | NAAC A+ Grade | NBA [All Eligible UG Programs]</h2>
+    
+  </header>
+
+  <nav>
+    <a href="#Cutoffs">Cutoffs</a>
+    <a href="#Placement">Placement</a>
+    <a href="#section3"></a>
+</nav>
+
+  <section style="background-color: white">
+    <img id="college-image" src="{{url_for('static',filename="images/PICT.jpg")}}"  alt="College Image" class="center">
+    
+    
+    
+  </section>
+
+  <section id="Placement" style="background-color: #ccffcc;">
+    <h2 style="color: #cc0099;">Placement</h2>
+    <div class="placement-info">
+      <div>
+        <p>Average Package</p>
+        <p>11.28 LPA</p>
+      </div>
+      <div>
+        <p>Highest Package</p>
+        <p>50.50 LPA</p>
+      </div>
+      <div>
+        <p>Median Package</p>
+        <p>8.50 LPA</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="placement-stats">
+    <h2 style="color: #993333;">Branch-wise Placement Statistics</h2>
+    <table>
+      <tr>
+        <th style="background-color: #339966;">Branch</th>
+        <th style="background-color: #339966;">Placement Percentage</th>
+        <th style="background-color: #339966;">Highest Package</th>
+        <th style="background-color: #339966;">Average Package</th>
+        <th style="background-color: #339966;">Median Package</th>
+      </tr>
+      <tr>
+        <td>Computer Science</td>
+        <td>87.46</td>
+        <td>50.50 LPA</td>
+        <td>17.56 LPA</td>
+        <td>17.66 LPA</td>
+      </tr>
+      <tr>
+        <td>Robotics and Artificial Intilligence</td>
+        <td> </td>
+        <td>  LPA</td>
+        <td> LPA</td>
+        <td> LPA</td>
+      </tr>
+      <tr>
+        <td>Electronics and Telecommunication Engineering</td>
+        <td>85.87</td>
+        <td>40.00 LPA</td>
+        <td>13.21 LPA</td>
+        <td>11.06 LPA</td>
+      </tr>
+      <tr>
+        <td>Electrical Engineering/td>
+        <td>84.88</td>
+        <td>34.64 LPA</td>
+        <td>10.13 LPA</td>
+        <td>8.00 LPA</td>
+      </tr>
+      <tr>
+        <td>Instrumentation and control Engineering</td>
+        <td>85.00</td>
+        <td>34.64 LPA</td>
+        <td>11.06 LPA</td>
+        <td>11.24 LPA</td>
+      </tr>
+      <tr>
+        <td>Mechanical Engineering</td>
+        <td>78.98</td>
+        <td>33.14 LPA</td>
+        <td>8.34 LPA</td>
+        <td>7.50 LPA</td>
+      </tr>
+      <tr>
+        <td>Manufacturing Science and Engineering</td>
+        <td>61.19</td>
+        <td>18.00 LPA</td>
+        <td>7.04 LPA</td>
+        <td>6.00 LPA</td>
+      </tr>
+      <tr>
+        <td>Civil Engineering</td>
+        <td>48.81</td>
+        <td>33.14 LPA</td>
+        <td>6.71 LPA</td>
+        <td>6.00 LPA</td>
+      </tr>
+      <tr>
+        <td>Metallurgy Engineering</td>
+        <td>58.46</td>
+        <td>19.53 LPA</td>
+        <td>7.16 LPA</td>
+        <td>6.75 LPA</td>
+      </tr>
+      <tr>
+        <td>Planning</td>
+        <td>23.68</td>
+        <td>18.00 LPA</td>
+        <td>7.18 LPA</td>
+        <td>6.00 LPA</td>
+      </tr>
+      <!-- Add more rows for other branches -->
+    </table>
+  </section>
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closing Ranks</title>
+</head>
+<body>
+    <h2 style="color: #9900cc;">Closing Ranks</h2>
+    <table border="1">
+        <tr>
+            <th style="background-color: #ff6666;">Branch</th>
+            <th style="background-color: #ff6666;">Closing Rank (OPEN)</th>
+            <th style="background-color: #ff6666;">Closing Rank (OBC)</th>
+            <th style="background-color: #ff6666;">Closing Rank (SC)</th>
+            <th style="background-color: #ff6666;">Closing Rank (ST)</th>
+            <th style="background-color: #ff6666;">Closing Rank (EWS)</th>
+        </tr>
+        <tr>
+            <td>Computer Engineering</td>
+            <td>322</td>
+            <td>421</td>
+            <td>2320</td>
+            <td>9118</td>
+            <td>473</td>
+        </tr>
+        <tr>
+            <td>Robotics and Artificial Intelligence</td>
+            <td>732</td>
+            <td>1009</td>
+            <td>4184</td>
+            <td>15808</td>
+            <td>1028</td>
+        </tr>
+        <tr>
+            <td>Electronics and Telecommunication Engineering</td>
+            <td>549</td>
+            <td>773</td>
+            <td>5461</td>
+            <td>16859</td>
+            <td>1020</td>
+        </tr>
+        <tr>
+            <td>Electrical Engineering</td>
+            <td>1435</td>
+            <td>1009</td>
+            <td>7505</td>
+            <td>27891</td>
+            <td>3290</td>
+        </tr>
+        <tr>
+            <td>Instrumentation and Control Engineering</td>
+            <td>2015</td>
+            <td>3568</td>
+            <td>8542</td>
+            <td>30451</td>
+            <td>5847</td>
+        </tr>
+        <tr>
+            <td>Mechanical Engineering</td>
+            <td>3045</td>
+            <td>4587</td>
+            <td>9658</td>
+            <td>32145</td>
+            <td>7854</td>
+        </tr>
+        <tr>
+            <td>Manufacturing Science and Engineering</td>
+            <td>4785</td>
+            <td>6589</td>
+            <td>11444</td>
+            <td>33666</td>
+            <td>8956</td>
+        </tr>
+        <tr>
+            <td>Civil Engineering</td>
+            <td>8957</td>
+            <td>11457</td>
+            <td>14569</td>
+            <td>35896</td>
+            <td>10458</td>
+        </tr>
+        <tr>
+            <td>Metallurgy Engineering</td>
+            <td>10458</td>
+            <td>13625</td>
+            <td>16589</td>
+            <td>48000</td>
+            <td>16458</td>
+        </tr>
+    </table>
+</body>
+</html>
+
+  
+
+  <section class="other-info">
+    <h2 style="color: #336699;">Other Information</h2>
+    <p>Hostel facilities, clubs, fests, ground, etc.</p>
+  </section>
+
+
+  <footer>
+    &copy; 2024 College Information
+  </footer>
+
+</body>
+</html>

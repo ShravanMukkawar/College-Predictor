@@ -1,0 +1,45 @@
+{% extends "public/templates/public_template.html" %}
+
+{% block scripts_css %}
+<link rel="stylesheet" href={{ url_for('static', filename='css/rstyle.css') }}>
+{% endblock scripts_css %}
+
+
+
+
+{% block main %}
+<div class="video-container">
+  <video autoplay muted loop id="video-bg">
+    <source src="{{  url_for('static', filename='css/video.mp4')  }}" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+  </div>
+<div class='signup-container'>
+  <div class='right-container' style="color: aliceblue;">
+    {% block headerTitle %}
+    <h1 style="color:white;">Congratulations ! <br>
+      <div class="lines" style="color:white;">Your expected {{category}} rank: <br>
+        <bold style="color:white;">{{ranks}}</bold>
+      </div>
+    </h1>
+    {% endblock headerTitle %}
+
+    <table class="res">
+      {% for table in tables %}
+      {{titles[loop.index]}}
+      {{ table|safe }}
+      {% endfor %}
+    </table>
+    <footer>
+      <div class='set'>
+        <button id='next' onclick="window.location.href='/'">Back</button>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+{% endblock main %}
+
+{% block scripts_js %}
+{% endblock scripts_js %}

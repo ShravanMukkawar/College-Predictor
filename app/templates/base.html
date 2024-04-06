@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CollegePathPredictor</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style1.css')}}" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body,
+      html {
+        scroll-behavior: smooth;
+        font-family: "calibri";
+      }
+
+      #page-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      #title-bar {
+        background: #232222;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        font-size: 20px;
+      }
+
+      #scrolling-image-slider {
+        display: block;
+        width: 100%;
+        overflow-x: scroll;
+        margin-top: 20px;
+        padding: 20px;
+      }
+
+      .slider-container {
+        display: block;
+        white-space: nowrap;
+      }
+
+      .items {
+        width: 500px;
+        height: 300px;
+        background: #000;
+        display: inline-block;
+        margin-right: 10px;
+        cursor: pointer;
+        text-align: center;
+        position: relative;
+      }
+
+      .items img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .item-name {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgb(240, 232, 232);
+        color: black;
+        padding: 8px;
+        font-size: 14px;
+      }
+
+      .space-between-divs {
+        margin-bottom: 20px;
+        margin-top: 20px;
+      }
+      .column:hover img {
+        transform: scale(1.1);
+        transition: transform 0.3s ease;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="upper">
+      <div class="navbar">
+        <div class="logo">
+          <h1 class="logo1">CollegePathPredictor</h1>
+        </div>
+        <div class="topnav">
+          <a class="active" href="/">Home</a>
+          <a href="#" onclick="scrollToSection('page-container')">Colleges</a>
+          <a href="/index">Predictor</a>
+          <a href="/exams">Exams</a>
+          <a href="#about">About</a>
+        </div>
+      </div>
+      <form action="/getcollege" method="post">
+        <div class="cont">
+          <h1 class="theme">KNOW MORE, DO MORE</h1>
+          <div class="input_cont">
+            <input type="text" name="college" placeholder="Search for Colleges, Course, or Exam" style="height: 50px; width: 420px; border-bottom-left-radius: 5px; border-top-left-radius: 5px; border: 1px solid;">
+            <input type="submit" class="Search_button" value="Submit" />
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="Horizontal">
+      <h2>Connect Us..</h2>
+      <hr class="down" />
+    </div>
+
+    <h1 class="Quote">
+      Prioritize Your Decision.
+      <hr class="dotted" />
+    </h1>
+
+    <div class="row">
+      <div class="column">
+        <h1
+          style="
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 100;
+            padding-left: 70px;
+          "
+        >
+          COLLEGES
+        </h1>
+        <a class="img1" href="#">
+          <img
+            src="{{url_for('static',filename='images/coep.jpg')}}"
+            alt="Snow"
+            style="height: 300px; width: 300px; border-radius: 20px"
+          />
+        </a>
+      </div>
+      <div class="column">
+        <h1
+          style="
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 100;
+            padding-left: 70px;
+          "
+        >
+          EXAMS
+        </h1>
+        <a class="Examsimg" href="/exams">
+          <img
+            src="{{url_for('static',filename='images/istockphoto-492198113-612x612.jpg')}}"
+            alt="Forest"
+            style="height: 300px; width: 300px; border-radius: 20px"
+          />
+        </a>
+      </div>
+      <div class="column">
+        <h1
+          style="
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 100;
+            padding-left: 70px;
+          "
+        >
+          CUT-OFF
+        </h1>
+        <a
+          class="cutoffimg"
+          href="{{url_for('static', filename='images/cutoff.pdf')}}"
+          download="Cutoff_List.pdf"
+        >
+          <img
+            src="{{url_for('static',filename='images/cutoff.jpg')}}"
+            alt="Mountains"
+            style="height: 300px; width: 300px; border-radius: 20px"
+          />
+        </a>
+      </div>
+    </div>
+
+    <div id="page-container">
+      <div id="title-bar">TOP COLLEGES</div>
+
+      <section id="scrolling-image-slider">
+        <div class="slider-container">
+          <div class="items" onclick="navigateTo('image1.jpg')">
+            <img src={{url_for('static',filename="images/coep.jpg")}} alt="Image
+            1">
+            <div class="item-name">COEP Technological University Pune</div>
+          </div>
+          <div class="items" onclick="navigateTo('image2.jpg')">
+            <img src={{url_for('static',filename="images/vjti.jpg")}} alt="Image
+            2">
+            <div class="item-name">
+              Veermata Jijabai Technological Institute Mumbai
+            </div>
+          </div>
+          <div class="items" onclick="navigateTo('image2.jpg')">
+            <img src={{url_for('static',filename="images/ICT Mumbai.jpg")}}
+            alt="Image 2">
+            <div class="item-name">Institute Of Chemical Technology Mumbai</div>
+          </div>
+          <div class="items" onclick="navigateTo('image2.jpg')">
+            <img src={{url_for('static',filename="images/PICT.jpg")}} alt="Image
+            2">
+            <div class="item-name">
+              SCTR'S Pune Institute of Computer Technology
+            </div>
+          </div>
+          <div class="items" onclick="navigateTo('image2.jpg')">
+            <img src={{url_for('static',filename="images/walchand.jpg")}}
+            alt="Image 2">
+            <div class="item-name">Walchand College Of Engineering Sangali</div>
+          </div>
+          <div class="items" onclick="navigateTo('image2.jpg')">
+            <img src={{url_for('static',filename="images/SPIT Mumbai.jpg")}}
+            alt="Image 2">
+            <div class="item-name">
+              B.V.B's Sardar Patel Institute of Technology Mumbai
+            </div>
+          </div>
+          <div class="items" onclick="navigateTo('image2.jpg')">
+            <img src="{{url_for('static',filename="images/D.J. Sanghvi Mumbai.png")}}" alt="Image 2">
+            <div class="item-name">
+              D.J. Sanghvi College of Engineering Mumbai
+            </div>
+          </div>
+          <div class="items" onclick="navigateTo('image2.jpg')">
+            <img src={{url_for('static',filename="images/VIT Pune.jpg")}}
+            alt="Image 2">
+            <div class="item-name">
+              Vishwakarma Institute of Technology Pune
+            </div>
+          </div>
+          <div class="items" onclick="navigateTo('image2.jpg')">
+            <img src={{url_for('static',filename="images/PCCOE Pune.jpeg")}}
+            alt="Image 2">
+            <div class="item-name">Pimpri Chinchwad College Of Engineering</div>
+          </div>
+          <div class="items" onclick="navigateTo('image2.jpg')">
+            <img src={{url_for('static',filename="images/D.Y.Patil Akurdi.jpg")}} alt="Image 2">
+            <div class="item-name">
+              D.Y. Patil College of Engineering Akurdi Pune
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      function navigateTo(imageName) {
+        console.log("Navigating to " + imageName);
+      }
+
+      function scrollToSection(sectionId) {
+        var section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+    </script>
+  </body>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy;MakeMyCollege. All rights reserved.</p>
+    </div>
+  </footer>
+</html>

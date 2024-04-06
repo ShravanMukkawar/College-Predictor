@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exams</title>
+    <style>
+        .image-box {
+            margin: 10px;
+            display: block;
+            text-align: center;
+            border:3px solid black;
+            width:200px;
+            height:200px;
+            margin-left:44%;
+            margin-top: 30px;
+            padding-top: 0px;
+            margin-bottom: 50px;
+        }
+        body{
+            background-image: url(images/dark-background-abstract-background-network-3d-background-7680x4320-8324.png);
+    }
+        .title{
+            text-align: center;
+            padding-bottom:30px;
+            padding-top:20px;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 2px rgb(240, 231, 231);
+            font-size: 3em;
+            animation: core infinite ease 2s;
+            transition: all ease;
+        }
+        .main{
+            text-align: center;
+            color: aliceblue;
+        }
+        .button{
+            background-color:lightsalmon;
+            cursor: pointer;
+            border-radius:5px ;
+        }
+        .button:hover {
+            background-color: #e8eee8; /* Darker green color on hover */
+        }
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        #video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video autoplay muted loop id="video-bg">
+          <source src="{{  url_for('static', filename='css/video.mp4')  }}" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            var video = document.getElementById('video-bg');
+            video.playbackRate =1; 
+          });
+        </script>
+        </div>
+    <div class="title">
+        <h1>TOP EXAMS</h1>
+    </div>
+    <div class="main"> 
+        <h1>JEE MAINS 2024</h1>
+        <h3>Exam,Application,Fees,Date,Syllabus</h3>
+        <button class="button" onclick="redirectToURL('https://jeemain.nta.ac.in/')">Read More</button>
+        <div class="image-box">
+        <a href="https://jeemain.nta.ac.in/">
+            <img src="{{ url_for('static', filename='images/jeemain.jpg') }}" alt="Image 1" width="200" height="200">
+        </a>
+    </div>
+    <h1>JEE ADVANCED 2024</h1>
+    <h3>Exam,Application,Fees,Date,Syllabus</h3>
+    <button class="button" onclick="redirectToURL('https://jeeadv.ac.in/')">Read More</button>
+    <div class="image-box">
+        <a href="https://jeeadv.ac.in/">
+            <img src="{{ url_for('static', filename='images/jeeadvance.png') }}" alt="Image 2" width="200" height="200">
+        </a>
+    </div>
+    <h1>MHT-CET 2024</h1>
+    <h3>Exam,Application,Fees,Date,Syllabus</h3>
+    <button class="button" onclick="redirectToURL('https://cetcell.mahacet.org/')">Read More</button>
+    <div class="image-box">
+        <a href="https://cetcell.mahacet.org/">
+            <img src="{{ url_for('static', filename='images/cet.jpg') }}" alt="Image 3" width="200" height="200">
+        </a>
+    </div>
+    <h1>BITSAT 2024</h1>
+    <h3>Exam,Application,Fees,Date,Syllabus</h3>
+    <button class="button" onclick="redirectToURL('https://www.bitsadmission.com/')">Read More</button>
+    <div class="image-box">
+    <a href="https://www.bitsadmission.com/">
+        <img src="{{ url_for('static', filename='images/BITS.png') }}" alt="Image 1" width="200" height="200">
+    </a>
+    </div>
+    <h1>VITEEE 2024</h1>
+    <h3>Exam,Application,Fees,Date,Syllabus</h3>
+    <button class="button" onclick="redirectToURL('https://vit.ac.in/')">Read More</button>
+    <div class="image-box">
+    <a href="https://vit.ac.in/">
+        <img src="{{ url_for('static', filename='images/vellore.png') }}" alt="Image 1" width="200" height="200">
+    </a>
+    </div>
+    <h1>UGEE 2024</h1>
+    <h3>Exam,Application,Fees,Date,Syllabus</h3>
+    <button class="button" onclick="redirectToURL('https://ugadmissions.iiit.ac.in/ugee2024/')">Read More</button>
+    <div class="image-box">
+    <a href="https://ugadmissions.iiit.ac.in/ugee2024/">
+        <img src="{{ url_for('static', filename='images/iiith.png') }}" alt="Image 1" width="200" height="200">
+    </a>
+    </div>
+    </div>
+</body>
+<script>
+    function redirectToURL(url) {
+        window.location.href = url;
+    }
+</script>
+</html>

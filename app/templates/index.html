@@ -1,0 +1,125 @@
+{% extends "public/templates/public_template.html" %}
+
+{% block scripts_css %}
+<link rel="stylesheet" href={{ url_for('static', filename='css/style.css') }}>
+
+{% endblock scripts_css %}
+
+{% block title %}MakeMyCollege{% endblock %}
+
+{% block main %}
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<div class="video-container">
+  <video autoplay muted loop id="video-bg">
+    <source src="{{  url_for('static', filename='css/video.mp4')  }}" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var video = document.getElementById('video-bg');
+      video.playbackRate = 0.5; 
+    });
+  </script>
+  </div>
+  <div class="upper">
+  <div class='right-container container-fluid h-auto '>
+    {% block headerTitle %}
+ 
+    <h1 style="color: aliceblue;">!! Locate Your Ideal College !!</h1>
+    {% endblock headerTitle %}
+    <header>
+      {% with messages= get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      {% for category,message in messages %}
+      <div class="alert alert-danger" role="alert">
+        <h3>{{message}}</h3>
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+
+
+      <form action="/index" method="POST">
+        <div class='set'>
+
+          <div class='rank'>
+            <label for='rank' style="color: aliceblue;">Rank</label>
+            <input id='rank' placeholder="If you have received it" type='number' min="1" mx="10000000" name="rank">
+          </div>
+        </div>
+
+        <div class='set'>
+          <div class='state'>
+            <label for='state' style="color: aliceblue;">Home State</label>
+            <select name="state">
+              <option selected value="All India"></option>
+              <option value="Maharashtra">Maharashtra</option>
+
+
+              
+            </select>
+          </div>
+          <div class='pwd'>
+            <label for='pwd' style="color: aliceblue;">PwD</label>
+            <div class='radio-container'>
+              <input checked='' id='pwd-Yes' name='pwd' type='radio' value='YES'>
+              <label for='pwd-Yes'>Yes</label>
+              <input checked='' id='pwd-No' name='pwd' type='radio' value='NO'>
+              <label for='pwd-No'>No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class='set'>
+          <div class='gender'>
+            <label for='gender-female' style="color: aliceblue;">Gender</label>
+            <div class='radio-container'>
+              <input checked='' id='gender-female' name='gender' type='radio' value='F'>
+              <label for='gender-female'>Female</label>
+              <input id='gender-male' name='gender' type='radio' value='M'>
+              <label for='gender-male'>Male</label>
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class='category'>
+          <label for='category-0-25' style="color: aliceblue;">Category</label>
+          <div class='radio-container'>
+            <input checked='' id='category-0-20' name='category' type='radio' value='GEN'>
+            <label for='category-0-20'>General</label>
+            <input id='category-20-40' name='category' type='radio' value='SC'>
+            <label for='category-20-40'>SC</label>
+            <input id='category-40-60' name='category' type='radio' value='ST'>
+            <label for='category-40-60'>ST</label>
+            <input id='category-60-80' name='category' type='radio' value='OBC'>
+            <label for='category-60-80'>OBC</label>
+            <input id='category-80-100' name='category' type='radio' value='EWS'>
+            <label for='category-80-100'>EWS</label>
+          </div>
+        </div>
+    </header>
+    <footer>
+      <div class='set' id="myfooter">
+        <button id='next' type="submit">Next</button>
+      </div>
+    </footer>
+    </form>
+
+  </div>
+  
+</div>
+</div>
+
+
+  {% endblock main %}
+
+  {% block scripts_js %}
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  {% endblock scripts_js %}
